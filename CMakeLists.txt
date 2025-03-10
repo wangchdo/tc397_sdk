@@ -29,6 +29,11 @@ set(SDK_INCDIR
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Src/Std
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Stm/Timer
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Cpu/Trap
+
+    ## Eth
+    ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Geth/Eth
+    ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Geth/Std
+
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Platform
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Sfr/TC39B/_Reg
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Ssw/TC39B/Tricore
