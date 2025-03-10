@@ -74,6 +74,16 @@ set(SDK_CSRCS
 
 target_sources(nuttx PRIVATE ${SDK_CSRCS})
 
+set(IFX_STARTUP_FLAGS -DIFX_CFG_SSW_ENABLE_TRICORE1=0
+                      -DIFX_CFG_SSW_ENABLE_TRICORE2=0
+                      -DIFX_CFG_SSW_ENABLE_TRICORE3=0
+                      -DIFX_CFG_SSW_ENABLE_TRICORE4=0
+                      -DIFX_CFG_SSW_ENABLE_TRICORE5=0)
+
+target_compile_options(arch PRIVATE ${IFX_STARTUP_FLAGS})
+target_compile_options(nuttx PRIVATE ${IFX_STARTUP_FLAGS})
+
+
 if(NOT CONFIG_TRICORE_TOOLCHAIN_TASKING)
   target_link_options(nuttx PRIVATE -Xlinker -nostdlib)
 else()
