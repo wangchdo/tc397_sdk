@@ -70,7 +70,11 @@ set(SDK_CSRCS
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Ssw/TC39B/Tricore/Ifx_Ssw_Tc2.c
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Ssw/TC39B/Tricore/Ifx_Ssw_Tc3.c
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Ssw/TC39B/Tricore/Ifx_Ssw_Tc4.c
-    ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Ssw/TC39B/Tricore/Ifx_Ssw_Tc5.c)
+    ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Ssw/TC39B/Tricore/Ifx_Ssw_Tc5.c
+    ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Geth/Eth/IfxGeth_Eth.c
+    ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/_PinMap/IfxGeth_PinMap.c
+    ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Geth/Std/IfxGeth.c
+    ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/_Impl/IfxGeth_cfg.c)
 
 target_sources(nuttx PRIVATE ${SDK_CSRCS})
 
