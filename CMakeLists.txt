@@ -82,7 +82,13 @@ set(IFX_STARTUP_FLAGS -DIFX_CFG_SSW_ENABLE_TRICORE1=0
                       -DIFX_CFG_SSW_ENABLE_TRICORE2=0
                       -DIFX_CFG_SSW_ENABLE_TRICORE3=0
                       -DIFX_CFG_SSW_ENABLE_TRICORE4=0
-                      -DIFX_CFG_SSW_ENABLE_TRICORE5=0)
+                      -DIFX_CFG_SSW_ENABLE_TRICORE5=0
+                      -DIFX_CFG_SSW_ENABLE_TRICORE0_DCACHE=0
+                      -DIFX_CFG_SSW_ENABLE_TRICORE1_DCACHE=0
+                      -DIFX_CFG_SSW_ENABLE_TRICORE2_DCACHE=0
+                      -DIFX_CFG_SSW_ENABLE_TRICORE3_DCACHE=0
+                      -DIFX_CFG_SSW_ENABLE_TRICORE4_DCACHE=0
+                      -DIFX_CFG_SSW_ENABLE_TRICORE5_DCACHE=0)
 
 target_compile_options(arch PRIVATE ${IFX_STARTUP_FLAGS})
 target_compile_options(nuttx PRIVATE ${IFX_STARTUP_FLAGS})
