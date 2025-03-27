@@ -99,3 +99,8 @@ if(NOT CONFIG_TRICORE_TOOLCHAIN_TASKING)
 else()
   nuttx_add_extra_library(${CMAKE_CURRENT_LIST_DIR}/SW160800-v6.3r1/TriCore/ctc/lib/tc162/cinit.o)
 endif()
+
+if((CONFIG_TRICORE_TOOLCHAIN_TASKING) AND (CONFIG_RT_FRAMEWORK))
+  nuttx_add_extra_library(${CMAKE_CURRENT_LIST_DIR}/SW160800-v6.3r1/TriCore/ctc/lib/tc162/setjmp.o)
+  nuttx_add_extra_library(${CMAKE_CURRENT_LIST_DIR}/SW160800-v6.3r1/TriCore/ctc/lib/tc162/longjmp.o)
+endif()
