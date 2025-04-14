@@ -106,13 +106,14 @@ if((CONFIG_TRICORE_TOOLCHAIN_TASKING) AND (CONFIG_RT_FRAMEWORK))
 endif()
 
 set(VENDOR_THIRD_PARTY_DRIVER_INCDIR
-    ${CMAKE_CURRENT_LIST_DIR}/tc397/Libraries/iLLD/TC39B/Tricore/_Impl/
-    ${CMAKE_CURRENT_LIST_DIR}/tc397/Libraries/iLLD/TC39B/Tricore/_PinMap/
-    ${CMAKE_CURRENT_LIST_DIR}/tc397/Libraries/iLLD/TC39B/Tricore/Geth/Eth/
-    ${CMAKE_CURRENT_LIST_DIR}/tc397/Configurations/
-    ${CMAKE_CURRENT_LIST_DIR}/tc397/Libraries/iLLD/TC39B/Tricore/
-    ${CMAKE_CURRENT_LIST_DIR}/tc397/Libraries/Infra/Sfr/TC39B/_Reg/
-    ${CMAKE_CURRENT_LIST_DIR}/tc397/Libraries/Service/CpuGeneric/ CACHE INTERNAL "vendor third party driver incdir")
+    "${CMAKE_CURRENT_LIST_DIR}/tc397/Libraries/iLLD/TC39B/Tricore/_Impl/"
+    "${CMAKE_CURRENT_LIST_DIR}/tc397/Libraries/iLLD/TC39B/Tricore/_PinMap/"
+    "${CMAKE_CURRENT_LIST_DIR}/tc397/Libraries/iLLD/TC39B/Tricore/Geth/Eth/"
+    "${CMAKE_CURRENT_LIST_DIR}/tc397/Configurations/"
+    "${CMAKE_CURRENT_LIST_DIR}/tc397/Libraries/iLLD/TC39B/Tricore/"
+    "${CMAKE_CURRENT_LIST_DIR}/tc397/Libraries/Infra/Sfr/TC39B/_Reg/"
+    "${CMAKE_CURRENT_LIST_DIR}/tc397/Libraries/Service/CpuGeneric/" CACHE INTERNAL "vendor third party driver incdir")
+
 
 
 target_include_directories(arch PRIVATE ${VENDOR_THIRD_PARTY_DRIVER_INCDIR})
