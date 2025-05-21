@@ -1,3 +1,4 @@
+*.a
 *.adb
 *.asm
 *.bin
@@ -15,6 +16,7 @@
 *.lod
 *.lst
 *.map
+*.o
 *.obj
 *.profraw
 *.rel
@@ -40,7 +42,6 @@
 /_SAVED_APPS_config
 /cscope.*
 /defconfig
-/Make.defs
 /nuttx
 /nuttx-*
 /nuttx.*

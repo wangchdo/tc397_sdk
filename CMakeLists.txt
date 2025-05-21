@@ -29,11 +29,6 @@ set(SDK_INCDIR
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Src/Std
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Stm/Timer
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Cpu/Trap
-
-    ## Eth
-    ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Geth/Eth
-    ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Geth/Std
-
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Platform
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Sfr/TC39B/_Reg
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Ssw/TC39B/Tricore
@@ -70,51 +65,12 @@ set(SDK_CSRCS
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Ssw/TC39B/Tricore/Ifx_Ssw_Tc2.c
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Ssw/TC39B/Tricore/Ifx_Ssw_Tc3.c
     ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Ssw/TC39B/Tricore/Ifx_Ssw_Tc4.c
-    ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Ssw/TC39B/Tricore/Ifx_Ssw_Tc5.c
-    ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Geth/Eth/IfxGeth_Eth.c
-    ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/_PinMap/IfxGeth_PinMap.c
-    ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Geth/Std/IfxGeth.c
-    ${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/_Impl/IfxGeth_cfg.c)
+    ${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Ssw/TC39B/Tricore/Ifx_Ssw_Tc5.c)
 
 target_sources(nuttx PRIVATE ${SDK_CSRCS})
-
-set(IFX_STARTUP_FLAGS -DIFX_CFG_SSW_ENABLE_TRICORE1=0
-                      -DIFX_CFG_SSW_ENABLE_TRICORE2=0
-                      -DIFX_CFG_SSW_ENABLE_TRICORE3=0
-                      -DIFX_CFG_SSW_ENABLE_TRICORE4=0
-                      -DIFX_CFG_SSW_ENABLE_TRICORE5=0
-                      -DIFX_CFG_SSW_ENABLE_TRICORE0_DCACHE=0
-                      -DIFX_CFG_SSW_ENABLE_TRICORE1_DCACHE=0
-                      -DIFX_CFG_SSW_ENABLE_TRICORE2_DCACHE=0
-                      -DIFX_CFG_SSW_ENABLE_TRICORE3_DCACHE=0
-                      -DIFX_CFG_SSW_ENABLE_TRICORE4_DCACHE=0
-                      -DIFX_CFG_SSW_ENABLE_TRICORE5_DCACHE=0)
-
-target_compile_options(arch PRIVATE ${IFX_STARTUP_FLAGS})
-target_compile_options(nuttx PRIVATE ${IFX_STARTUP_FLAGS})
-
 
 if(NOT CONFIG_TRICORE_TOOLCHAIN_TASKING)
   target_link_options(nuttx PRIVATE -Xlinker -nostdlib)
 else()
   nuttx_add_extra_library(${CMAKE_CURRENT_LIST_DIR}/SW160800-v6.3r1/TriCore/ctc/lib/tc162/cinit.o)
 endif()
-
-if((CONFIG_TRICORE_TOOLCHAIN_TASKING) AND (CONFIG_RT_FRAMEWORK))
-  nuttx_add_extra_library(${CMAKE_CURRENT_LIST_DIR}/SW160800-v6.3r1/TriCore/ctc/lib/tc162/setjmp.o)
-  nuttx_add_extra_library(${CMAKE_CURRENT_LIST_DIR}/SW160800-v6.3r1/TriCore/ctc/lib/tc162/longjmp.o)
-endif()
-
-set(VENDOR_THIRD_PARTY_DRIVER_INCDIR
-    "${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/_Impl/"
-    "${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/_PinMap/"
-    "${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/Geth/Eth/"
-    "${CMAKE_CURRENT_LIST_DIR}/Configurations/"
-    "${CMAKE_CURRENT_LIST_DIR}/Libraries/iLLD/TC39B/Tricore/"
-    "${CMAKE_CURRENT_LIST_DIR}/Libraries/Infra/Sfr/TC39B/_Reg/"
-    "${CMAKE_CURRENT_LIST_DIR}/Libraries/Service/CpuGeneric/" CACHE INTERNAL "vendor third party driver incdir")
-
-
-
-target_include_directories(arch PRIVATE ${VENDOR_THIRD_PARTY_DRIVER_INCDIR})
-target_include_directories(nuttx PRIVATE ${VENDOR_THIRD_PARTY_DRIVER_INCDIR})
